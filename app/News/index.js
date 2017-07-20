@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
 
-class Home extends Component {
+class News extends Component {
 
     static navigationOptions = {
         // title 可以这样设置成一个函数， state 会自动传过来
@@ -11,7 +11,7 @@ class Home extends Component {
     render() {
         return (
             <View>
-                <Text>home</Text>
+                <Text>News</Text>
             </View>
         );
     }
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Home;
+export default News;

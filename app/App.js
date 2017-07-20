@@ -7,6 +7,10 @@ import {Button, ScrollView, Text, View} from 'react-native';
 import {StackNavigator, TabNavigator} from 'react-navigation';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Home  from './Home/index'
+import News  from './News/index'
+import Setting  from './Setting/index'
+import Weather  from './Weather/index'
 
 const MyNavScreen = ({navigation, banner}) => (
     <View>
@@ -15,19 +19,20 @@ const MyNavScreen = ({navigation, banner}) => (
 );
 
 const MyHomeScreen = ({navigation}) => (
-    <MyNavScreen banner="Home Screen" navigation={navigation}/>
+    <Home navigation={navigation} banner="Home Screen"/>
+    // <MyNavScreen banner="Home Screen" />
 );
 
 const MyNewsScreen = ({navigation}) => (
-    <MyNavScreen banner="News Screen" navigation={navigation}/>
+    <News banner="News Screen" navigation={navigation}/>
 );
 
 const MyWeatherScreen = ({navigation}) => (
-    <MyNavScreen banner="Weather Screen" navigation={navigation}/>
+    <Weather banner="Weather Screen" navigation={navigation}/>
 );
 
 const MySettingsScreen = ({navigation}) => (
-    <MyNavScreen banner="Settings Screen" navigation={navigation}/>
+    <Setting banner="Settings Screen" navigation={navigation}/>
 );
 
 
