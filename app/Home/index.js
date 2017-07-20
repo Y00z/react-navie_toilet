@@ -1,24 +1,15 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View,WebView} from 'react-native';
 
 
 class Home extends Component {
 
-    static navigationOptions = {
-        // title 可以这样设置成一个函数， state 会自动传过来
-        title: ({state}) => `${state.params.name}`,
-    };
     render() {
         return (
-            <View>
-                <Text>home</Text>
-            </View>
+            <WebView
+                source={{uri: 'http://123.57.39.116:3000/html/nearby.html'}}
+            />
         );
-    }
-
-    componentDidMount() {
-        const {params} = this.props.navigation.state;
-        console.log(params)
     }
 }
 
