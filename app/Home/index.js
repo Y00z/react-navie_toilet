@@ -15,7 +15,7 @@ class Home extends Component {
         return (
             <WebView
                 //source={{uri: this.state.map_live_url}}
-                source={require('./../../lib/html/nearby.html')}
+                source={require('./../../resource/html/nearby.html')}
             />
         );
     }

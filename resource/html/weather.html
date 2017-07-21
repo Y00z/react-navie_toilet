@@ -81,7 +81,7 @@
     var walking = null;
 
     var locationIcon = '<div class="locationIcon">'
-      + '<img src="./geolocation.png"/>'
+      + '<img src="../image/geolocation.png"/>'
       + '</div>';
 
     var locationComplete = function(data){
@@ -125,7 +125,7 @@
       var marker = new AMap.Marker({
         position: center,
         map: map,
-        content:'<div class="loc_circle"></div><img class="loc_img" src="loc.png" style="width:16px;"/>'
+        content:'<div class="loc_circle"></div><img class="loc_img" src="../image/loc.png" style="width:16px;"/>'
       });
 
       AMap.service('AMap.Geocoder', function() {
