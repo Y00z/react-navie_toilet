@@ -12,11 +12,6 @@ import News  from './News/index'
 import Setting  from './Setting/index'
 import Weather  from './Weather/index'
 
-const MyNavScreen = ({navigation, banner}) => (
-    <View>
-        <Text>{banner}</Text>
-    </View>
-);
 //主页面
 const MyHomeScreen = ({navigation}) => (
     <Home navigation={navigation} banner="Home Screen"/>
@@ -47,6 +42,7 @@ const MySettingsScreen = ({navigation}) => (
 //     <MyNavScreen banner="Notifications Screen" navigation={navigation}/>
 // );
 
+
 //4个Tab页面
 const TabNav = TabNavigator(
     {
@@ -54,7 +50,7 @@ const TabNav = TabNavigator(
             screen: MyHomeScreen,
             path: '/',
             navigationOptions: {
-                title: 'Welcome',
+                // title: 'Welcome',
                 tabBarLabel: '找厕所',
                 tabBarIcon: ({tintColor, focused}) => (
                     <Ionicons
@@ -69,7 +65,7 @@ const TabNav = TabNavigator(
             screen: MyNewsScreen,
             path: '/',
             navigationOptions: {
-                title: 'news',
+                // title: 'news',
                 tabBarLabel: '阅读',
                 tabBarIcon: ({tintColor, focused}) => (
                     <Ionicons
@@ -84,7 +80,7 @@ const TabNav = TabNavigator(
             screen: MyWeatherScreen,
             path: '/',
             navigationOptions: {
-                title: 'Weather',
+                // title: 'Weather',
                 tabBarLabel: '天气',
                 tabBarIcon: ({tintColor, focused}) => (
                     <Ionicons
@@ -99,7 +95,7 @@ const TabNav = TabNavigator(
             screen: MySettingsScreen,
             path: '/settings',
             navigationOptions: {
-                title: 'Settings',
+                // title: 'Settings',
                 tabBarLabel: '设置',
                 tabBarIcon: ({tintColor, focused}) => (
                     <Ionicons
@@ -113,11 +109,11 @@ const TabNav = TabNavigator(
     },
     {
         tabBarPosition: 'bottom',
-        animationEnabled: false,
+        animationEnabled: true,
         swipeEnabled: false,
     }
 );
-
+//头部标签
 const StacksOverTabs = StackNavigator({
     Root: {
         screen: TabNav,
@@ -137,4 +133,4 @@ const StacksOverTabs = StackNavigator({
     // },
 });
 
-export default StacksOverTabs;
+export default TabNav;
