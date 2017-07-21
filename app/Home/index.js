@@ -3,11 +3,19 @@ import {StyleSheet, Text, View,WebView} from 'react-native';
 
 
 class Home extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            map_live_url : 'http://123.57.39.116:3000/html/nearby.html',
+        }
+    }
+
 
     render() {
         return (
             <WebView
-                source={{uri: 'http://123.57.39.116:3000/html/nearby.html'}}
+                //source={{uri: this.state.map_live_url}}
+                source={require('./../../lib/html/nearby.html')}
             />
         );
     }
