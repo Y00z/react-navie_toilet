@@ -6,7 +6,7 @@ class Settings extends Component {
 
     static navigationOptions = {
         // title 可以这样设置成一个函数， state 会自动传过来
-        title: ({state}) => `${state.params.name}`,
+        // title: ({state}) => `${state.params.name}`,
     };
     render() {
         return (
@@ -17,8 +17,8 @@ class Settings extends Component {
     }
 
     componentDidMount() {
-        const {params} = this.props.navigation.state;
-        console.log(params)
+        // const {params} = this.props.navigation.state;
+        // console.log(params)
     }
 }
 

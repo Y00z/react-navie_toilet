@@ -1,21 +1,44 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 
 /**
  * 推荐专题
  */
 class Topic extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            data: this.props.data
+        }
+    }
 
     render() {
         return (
             <View>
-                <Text>推荐专题</Text>
+                <Text>{this.props.name}</Text>
+                <View>
+                    {this._renderImage()}
+                </View>
             </View>
         );
+    }
+
+    _renderImage = () => {
+        var itemArr = []
+        var response = this.state.data;
+        response.map((data,index)=>{
+            itemArr.push(
+                <Image style={styles.imageStyle} source={{uri:data.img}} />
+            )
+        })
+        return itemArr
     }
 }
 
 const styles = StyleSheet.create({
+    imageStyle:{
+        width:80,
+    },
     container: {
         flex: 1,
         justifyContent: 'center',
