@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
+import Util from './../../utils/conf'
 
 /**
  * 推荐专题
@@ -15,10 +16,11 @@ class Topic extends Component {
     render() {
         return (
             <View>
-                <Text>{this.props.name}</Text>
-                <View>
+                <Text style={{fontSize:18,marginBottom:5}}>{this.props.name}</Text>
+                <View style={{flexDirection:'row',justifyContent : 'space-between'}}>
                     {this._renderImage()}
                 </View>
+                <Text style={{fontSize:14,color:'gray',marginTop:5}}>查看同期专题</Text>
             </View>
         );
     }
@@ -28,7 +30,7 @@ class Topic extends Component {
         var response = this.state.data;
         response.map((data,index)=>{
             itemArr.push(
-                <Image style={styles.imageStyle} source={{uri:data.img}} />
+                <Image key={index} style={styles.imageStyle} source={{uri:data.img}} />
             )
         })
         return itemArr
@@ -37,7 +39,9 @@ class Topic extends Component {
 
 const styles = StyleSheet.create({
     imageStyle:{
-        width:80,
+        width:Util.size.width/2-13,
+        height:120,
+        borderRadius:10
     },
     container: {
         flex: 1,

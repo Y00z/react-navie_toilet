@@ -34,6 +34,7 @@ class News extends Component {
                         ?
                         <View>
                             <Topic name="推荐专题" data={this.state.recommendTopic}/>
+                            <Hr/>
                             <Recommend/>
                             <Category/>
                             <Recommend/>

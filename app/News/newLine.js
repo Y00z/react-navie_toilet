@@ -17,7 +17,7 @@ class newLine extends Component {
 const styles = StyleSheet.create({
     container: {
         borderColor: '#ccc',
-        borderWidth:1,
+        borderWidth:0.7,
         marginTop:8,
         marginBottom:8
     }
