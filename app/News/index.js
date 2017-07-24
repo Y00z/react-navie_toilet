@@ -35,9 +35,10 @@ class News extends Component {
                         <View>
                             <Topic name="推荐专题" data={this.state.recommendTopic}/>
                             <Hr/>
-                            <Recommend/>
+                            <Recommend name="热门推荐" data={this.state.hotTopic}/>
+                            <Hr/>
                             <Category/>
-                            <Recommend/>
+                            <Recommend name="清新一刻"/>
                         </View>
                         :
                         <ActivityIndicator
@@ -50,7 +51,7 @@ class News extends Component {
         );
     }
 
-    componentWillMount() {
+    componentDidMount() {
         // const {params} = this.props.navigation.state;
         // console.log(params)
         require.get("http://123.57.39.116:3000/data/read?type=config", null)
@@ -62,6 +63,8 @@ class News extends Component {
                     other: response.data.other,
                     isLoading: true
                 })
+                // console.log(response.data.hotTopic)
+                // console.log(this.state.hotTopic)
             })
     }
 }

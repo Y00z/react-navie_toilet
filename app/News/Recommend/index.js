@@ -1,21 +1,58 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
+import Util from './../../utils/conf'
 
 /**
  * 热门推荐
  */
 class Recommend extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            data: this.props.data
+        }
+    }
 
     render() {
         return (
             <View>
-                <Text>热门推荐</Text>
+                <Text>{this.props.name}</Text>
+                <View style={{flexWrap:'wrap',flexDirection:'row',justifyContent:'space-between'}}>
+                    {this._renderData()}
+                </View>
             </View>
         );
+    }
+
+    _renderData = () => {
+        var itemArr = []
+        var response = this.state.data;
+        if (response != null) {
+            response.map((data, index) => {
+                itemArr.push(
+                    <View key={index} style={styles.itemStyle}>
+                        <Image style={styles.imageStyle} source={{uri:data.img}}/>
+                        <Text numberOfLines={2} style={styles.textStyle}>{data.title}</Text>
+                    </View>
+                )
+            })
+        }
+        return itemArr
     }
 }
 
 const styles = StyleSheet.create({
+    textStyle:{
+      fontSize:11
+    },
+    itemStyle:{
+        width: Util.size.width / 4 -10,
+    },
+    imageStyle: {
+        width: Util.size.width / 4 -10,
+        height: 120,
+        borderRadius: 3
+    },
     container: {
         flex: 1,
         justifyContent: 'center',
