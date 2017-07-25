@@ -12,6 +12,7 @@ import News  from './News/index'
 import Setting  from './Setting/index'
 import Weather  from './Weather/index'
 import webView  from './GWebView'
+import List  from './GList'
 
 //主页面
 const MyHomeScreen = ({navigation}) => (
@@ -128,6 +129,10 @@ const StacksOverTabs = StackNavigator({
     Detail: {
         // path: 'people/:name',
         screen: webView,
+    },
+    List: {
+        // path: 'people/:name',
+        screen: List,
     }
 
     // NotifSettings: {

@@ -9,7 +9,7 @@ import Recommend from './Recommend/index';
 import Topic from './Topic/index';
 //横线
 import Hr from './newLine';
-import require from './../utils/request';
+import request from './../utils/request';
 
 class News extends Component {
 
@@ -34,7 +34,9 @@ class News extends Component {
                     this.state.isLoading
                         ?
                         <ScrollView style={{marginBottom : 45}}>
-                            <Topic name="推荐专题" data={this.state.recommendTopic}/>
+                            <Topic name="推荐专题" data={this.state.recommendTopic}
+                                   popToDetail={(url,title)=>navigate('Detail', {title: title , url:url})}
+                                   popToList={(title,type)=>navigate('List', {title: title , type:"manager",navigate:{navigate}})}/>
                             <Hr/>
                             <Recommend name="热门推荐" data={this.state.hotTopic}
                                        popToDetail={(url,title)=>navigate('Detail', {title: title , url:url})}/>
@@ -56,7 +58,7 @@ class News extends Component {
     }
 
     componentDidMount() {
-        require.get("http://123.57.39.116:3000/data/read?type=config", null)
+        request.get("http://123.57.39.116:3000/data/read?type=config", null)
             .then((response) => {
                 this.setState({
                     hotTopic: response.data.hotTopic,
@@ -65,8 +67,6 @@ class News extends Component {
                     other: response.data.other,
                     isLoading: true
                 })
-                // console.log(response.data.hotTopic)
-                // console.log(this.state.hotTopic)
             })
     }
 

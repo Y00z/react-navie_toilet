@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import Util from './../../utils/conf'
 
 /**
@@ -20,7 +20,9 @@ class Topic extends Component {
                 <View style={{flexDirection:'row',justifyContent : 'space-between'}}>
                     {this._renderImage()}
                 </View>
-                <Text style={{fontSize:14,color:'gray',marginTop:5}}>查看同期专题</Text>
+                <TouchableOpacity onPress={()=>this.props.popToList("同期专题","2")}>
+                    <Text style={{fontSize:14,color:'gray',marginTop:5}}>查看同期专题</Text>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -28,9 +30,11 @@ class Topic extends Component {
     _renderImage = () => {
         var itemArr = []
         var response = this.state.data;
-        response.map((data,index)=>{
+        response.map((data, index) => {
             itemArr.push(
-                <Image key={index} style={styles.imageStyle} source={{uri:data.img}} />
+                <TouchableOpacity key={index} onPress={()=>this.props.popToDetail(data.url,data.title)}>
+                    <Image style={styles.imageStyle} source={{uri:data.img}}/>
+                </TouchableOpacity>
             )
         })
         return itemArr
@@ -38,10 +42,10 @@ class Topic extends Component {
 }
 
 const styles = StyleSheet.create({
-    imageStyle:{
-        width:Util.size.width/2-13,
-        height:120,
-        borderRadius:6
+    imageStyle: {
+        width: Util.size.width / 2 - 13,
+        height: 120,
+        borderRadius: 6
     },
     container: {
         flex: 1,
