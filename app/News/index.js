@@ -41,7 +41,9 @@ class News extends Component {
                             <Recommend name="热门推荐" data={this.state.hotTopic}
                                        popToDetail={(url,title)=>navigate('Detail', {title: title , url:url})}/>
                             <Hr/>
-                            <Category name="分类" data={this.state.category}/>
+                            <Category name="分类" data={this.state.category}
+                                      popToList={(title,type)=>navigate('List', {title: title , type:type,navigate:{navigate}})}
+                            />
                             <Hr/>
                             <Recommend name="清新一刻" data={this.state.other} type="other"
                                        popToDetail={(url,title)=>navigate('Detail', {title: title , url:url})}/>

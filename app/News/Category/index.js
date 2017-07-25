@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Util from './../../utils/conf'
 
 /**
@@ -30,14 +30,38 @@ class Category extends Component {
         var response = this.state.data;
         if (response != null) {
             response.map((data, index) => {
+                var text = data.text
                 itemArr.push(
-                    <View key={index} style={styles.itemStyle}>
-                        <Text>{data.text}</Text>
-                    </View>
+                    <TouchableOpacity onPress={()=>this._onPress(text)} key={index}
+                        style={styles.itemStyle}>
+                    <Text>{text}</Text>
+                    </TouchableOpacity>
                 )
             })
         }
         return itemArr
+    }
+
+    _onPress = (text) => {
+        var type = 'it'
+        switch (text) {
+            case '互联网':
+                type = 'it';
+                break;
+            case '散文':
+                type = 'sanwen';
+                break;
+            case '笑话':
+                type = 'cookies';
+                break;
+            case '管理':
+                type = 'manager';
+                break;
+            default :
+                type = 'it';
+                break;
+        }
+        this.props.popToList(text, type)
     }
 }
 
@@ -50,7 +74,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom:10
+        marginBottom: 10
     },
     container: {
         flex: 1,
