@@ -31,7 +31,7 @@ class Recommend extends Component {
         if (response != null) {
             response.map((data, index) => {
                 itemArr.push(
-                    <TouchableOpacity onPress={()=>this.props.popToDetail("1","2")} key={index}
+                    <TouchableOpacity onPress={()=>this.props.popToDetail(data.url,data.title)} key={index}
                                       style={styles.itemStyle}>
                         <Image style={styles.imageStyle} source={{uri:data.img}}/>
                         <Text numberOfLines={2} style={styles.textStyle}>{data.title}</Text>

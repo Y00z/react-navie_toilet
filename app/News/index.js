@@ -37,11 +37,12 @@ class News extends Component {
                             <Topic name="推荐专题" data={this.state.recommendTopic}/>
                             <Hr/>
                             <Recommend name="热门推荐" data={this.state.hotTopic}
-                                       popToDetail={(url,name)=>navigate('Detail', {user: 'Brent'})}/>
+                                       popToDetail={(url,title)=>navigate('Detail', {title: title , url:url})}/>
                             <Hr/>
                             <Category name="分类" data={this.state.category}/>
                             <Hr/>
-                            <Recommend name="清新一刻" data={this.state.other} type="other"/>
+                            <Recommend name="清新一刻" data={this.state.other} type="other"
+                                       popToDetail={(url,title)=>navigate('Detail', {title: title , url:url})}/>
                         </ScrollView>
                         :
                         <ActivityIndicator
@@ -54,22 +55,7 @@ class News extends Component {
         );
     }
 
-    // //跳转到详情页面
-    // popToDetail = (url, name) => {
-    //     console.log(navigation)
-    //
-    //     // navigation.navigate('Detail')
-    // }
-
     componentDidMount() {
-        // const {billDetailActions} = this.props
-        // InteractionManager.runAfterInteractions(()=>{
-        //     billDetailActions.requestBillDetail()
-        // })
-        // const {navigate} = this.props.navigation;
-
-        // const {params} = this.props.navigation.state;
-        // console.log(params)
         require.get("http://123.57.39.116:3000/data/read?type=config", null)
             .then((response) => {
                 this.setState({

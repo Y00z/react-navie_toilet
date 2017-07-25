@@ -53,7 +53,7 @@ const TabNav = TabNavigator(
             navigationOptions: {
                 // title: 'Welcome',
                 tabBarLabel: '找厕所',
-                header:null,        //去掉头部标签
+                header: null,        //去掉头部标签
                 tabBarIcon: ({tintColor, focused}) => (
                     <Ionicons
                         name={focused ? 'ios-home' : 'ios-home-outline'}
@@ -69,7 +69,7 @@ const TabNav = TabNavigator(
             navigationOptions: {
                 // title: 'news',
                 tabBarLabel: '阅读',
-                header:null,        //去掉头部标签
+                header: null,        //去掉头部标签
                 tabBarIcon: ({tintColor, focused}) => (
                     <Ionicons
                         name={focused ? 'ios-book' : 'ios-book-outline'}
@@ -85,7 +85,7 @@ const TabNav = TabNavigator(
             navigationOptions: {
                 // title: 'Weather',
                 tabBarLabel: '天气',
-                header:null,        //去掉头部标签
+                header: null,        //去掉头部标签
                 tabBarIcon: ({tintColor, focused}) => (
                     <Ionicons
                         name={focused ? 'ios-cloud' : 'ios-cloud-outline'}
@@ -101,7 +101,7 @@ const TabNav = TabNavigator(
             navigationOptions: {
                 // title: 'Settings',
                 tabBarLabel: '设置',
-                header:null,        //去掉头部标签
+                header: null,        //去掉头部标签
                 tabBarIcon: ({tintColor, focused}) => (
                     <Ionicons
                         name={focused ? 'ios-settings' : 'ios-settings-outline'}
@@ -125,7 +125,7 @@ const StacksOverTabs = StackNavigator({
         screen: TabNav,
     },
     //注册页面，
-    Detail:{
+    Detail: {
         // path: 'people/:name',
         screen: webView,
     }
