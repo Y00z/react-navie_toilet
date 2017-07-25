@@ -39,7 +39,7 @@ class News extends Component {
                             <Hr/>
                             <Category name="分类" data={this.state.category}/>
                             <Hr/>
-                            <Recommend name="清新一刻"/>
+                            <Recommend name="清新一刻" data={this.state.other} type="other"/>
                         </ScrollView>
                         :
                         <ActivityIndicator
