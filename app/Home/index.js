@@ -3,6 +3,9 @@ import {StyleSheet, Text, View, WebView} from 'react-native';
 
 
 class Home extends Component {
+    static navigationOptions = {
+        title: 'sadf'
+    }
     constructor(props) {
         super(props)
         this.state = {

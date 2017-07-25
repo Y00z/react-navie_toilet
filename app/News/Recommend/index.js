@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import Util from './../../utils/conf'
 
 /**
@@ -31,10 +31,11 @@ class Recommend extends Component {
         if (response != null) {
             response.map((data, index) => {
                 itemArr.push(
-                    <View key={index} style={styles.itemStyle}>
+                    <TouchableOpacity onPress={()=>this.props.popToDetail("1","2")} key={index}
+                                      style={styles.itemStyle}>
                         <Image style={styles.imageStyle} source={{uri:data.img}}/>
                         <Text numberOfLines={2} style={styles.textStyle}>{data.title}</Text>
-                    </View>
+                    </TouchableOpacity>
                 )
             })
         }
@@ -43,14 +44,14 @@ class Recommend extends Component {
 }
 
 const styles = StyleSheet.create({
-    textStyle:{
-      fontSize:11
+    textStyle: {
+        fontSize: 11
     },
-    itemStyle:{
-        width: Util.size.width / 4 -10,
+    itemStyle: {
+        width: Util.size.width / 4 - 10,
     },
     imageStyle: {
-        width: Util.size.width / 4 -10,
+        width: Util.size.width / 4 - 10,
         height: 120,
         borderRadius: 3
     },

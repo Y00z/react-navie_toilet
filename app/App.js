@@ -11,6 +11,7 @@ import Home  from './Home/index'
 import News  from './News/index'
 import Setting  from './Setting/index'
 import Weather  from './Weather/index'
+import webView  from './GWebView'
 
 //主页面
 const MyHomeScreen = ({navigation}) => (
@@ -52,6 +53,7 @@ const TabNav = TabNavigator(
             navigationOptions: {
                 // title: 'Welcome',
                 tabBarLabel: '找厕所',
+                header:null,        //去掉头部标签
                 tabBarIcon: ({tintColor, focused}) => (
                     <Ionicons
                         name={focused ? 'ios-home' : 'ios-home-outline'}
@@ -67,6 +69,7 @@ const TabNav = TabNavigator(
             navigationOptions: {
                 // title: 'news',
                 tabBarLabel: '阅读',
+                header:null,        //去掉头部标签
                 tabBarIcon: ({tintColor, focused}) => (
                     <Ionicons
                         name={focused ? 'ios-book' : 'ios-book-outline'}
@@ -82,6 +85,7 @@ const TabNav = TabNavigator(
             navigationOptions: {
                 // title: 'Weather',
                 tabBarLabel: '天气',
+                header:null,        //去掉头部标签
                 tabBarIcon: ({tintColor, focused}) => (
                     <Ionicons
                         name={focused ? 'ios-cloud' : 'ios-cloud-outline'}
@@ -97,6 +101,7 @@ const TabNav = TabNavigator(
             navigationOptions: {
                 // title: 'Settings',
                 tabBarLabel: '设置',
+                header:null,        //去掉头部标签
                 tabBarIcon: ({tintColor, focused}) => (
                     <Ionicons
                         name={focused ? 'ios-settings' : 'ios-settings-outline'}
@@ -107,8 +112,9 @@ const TabNav = TabNavigator(
             },
         },
     },
-    {
+    {   //显示在底部
         tabBarPosition: 'bottom',
+        //显示动画
         animationEnabled: true,
         swipeEnabled: false,
     }
@@ -117,7 +123,13 @@ const TabNav = TabNavigator(
 const StacksOverTabs = StackNavigator({
     Root: {
         screen: TabNav,
+    },
+    //注册页面，
+    Detail:{
+        // path: 'people/:name',
+        screen: webView,
     }
+
     // NotifSettings: {
     //     screen: MyNotificationsSettingsScreen,
     //     navigationOptions: {
@@ -133,4 +145,4 @@ const StacksOverTabs = StackNavigator({
     // },
 });
 
-export default TabNav;
+export default StacksOverTabs;

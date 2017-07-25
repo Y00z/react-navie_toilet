@@ -25,6 +25,7 @@ class News extends Component {
     }
 
     render() {
+        const {navigate} = this.props.navigation;
         return (
             <View style={{padding:10}}>
                 <Search/>
@@ -35,7 +36,8 @@ class News extends Component {
                         <ScrollView style={{marginBottom : 45}}>
                             <Topic name="推荐专题" data={this.state.recommendTopic}/>
                             <Hr/>
-                            <Recommend name="热门推荐" data={this.state.hotTopic}/>
+                            <Recommend name="热门推荐" data={this.state.hotTopic}
+                                       popToDetail={(url,name)=>navigate('Detail', {user: 'Brent'})}/>
                             <Hr/>
                             <Category name="分类" data={this.state.category}/>
                             <Hr/>
@@ -52,7 +54,20 @@ class News extends Component {
         );
     }
 
+    // //跳转到详情页面
+    // popToDetail = (url, name) => {
+    //     console.log(navigation)
+    //
+    //     // navigation.navigate('Detail')
+    // }
+
     componentDidMount() {
+        // const {billDetailActions} = this.props
+        // InteractionManager.runAfterInteractions(()=>{
+        //     billDetailActions.requestBillDetail()
+        // })
+        // const {navigate} = this.props.navigation;
+
         // const {params} = this.props.navigation.state;
         // console.log(params)
         require.get("http://123.57.39.116:3000/data/read?type=config", null)
@@ -68,6 +83,8 @@ class News extends Component {
                 // console.log(this.state.hotTopic)
             })
     }
+
+
 }
 
 const styles = StyleSheet.create({
