@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, ActivityIndicator} from 'react-native';
+import {StyleSheet, Text, View, ActivityIndicator, ScrollView} from 'react-native';
 import Search from './Search/index';
 //分类
 import Category from './Category/index';
@@ -32,14 +32,15 @@ class News extends Component {
                 {
                     this.state.isLoading
                         ?
-                        <View>
+                        <ScrollView style={{marginBottom : 45}}>
                             <Topic name="推荐专题" data={this.state.recommendTopic}/>
                             <Hr/>
                             <Recommend name="热门推荐" data={this.state.hotTopic}/>
                             <Hr/>
-                            <Category/>
+                            <Category name="分类" data={this.state.category}/>
+                            <Hr/>
                             <Recommend name="清新一刻"/>
-                        </View>
+                        </ScrollView>
                         :
                         <ActivityIndicator
                             size="large"
