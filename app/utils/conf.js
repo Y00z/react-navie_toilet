@@ -4,6 +4,9 @@
 
 'use strict'
 import Dimensions from 'Dimensions';
+import {
+    PixelRatio,
+} from 'react-native';
 
 module.exports = {
     header: {
@@ -18,4 +21,7 @@ module.exports = {
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height
     },
+
+    /*最小线宽*/
+    pixel: 1 / PixelRatio.get(),
 }
