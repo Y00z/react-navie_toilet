@@ -14,6 +14,12 @@ import Weather  from './Weather/index'
 import webView  from './GWebView'
 import List  from './GList'
 
+import Help from './Setting/help';
+import Details from './Setting/detail';
+import Tips from './Setting/tips';
+import About from './Setting/about';
+
+
 //主页面
 const MyHomeScreen = ({navigation}) => (
     <Home navigation={navigation} banner="Home Screen"/>
@@ -133,6 +139,36 @@ const StacksOverTabs = StackNavigator({
     List: {
         // path: 'people/:name',
         screen: List,
+    },
+    //设置子页面
+    Help:{
+        screen: Help,
+        navigationOptions: {
+            title:'帮助中心'
+            // header: null,        //去掉头部标签
+        },
+    },
+
+    Details:{
+        screen: Details,
+        navigationOptions: {
+            title:'功能介绍'
+            // header: null,        //去掉头部标签
+        },
+    },
+    Tips:{
+        screen: Tips,
+        navigationOptions: {
+            title:'服务条款',
+            // header: null,        //去掉头部标签
+        },
+    },
+    About:{
+        screen: About,
+        navigationOptions: {
+            title:'关于'
+            // header: null,        //去掉头部标签
+        },
     }
 
     // NotifSettings: {

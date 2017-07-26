@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, ScrollView, TouchableOpacity, Image} from 'react-native';
+import {StyleSheet, Alert, Text, View, ScrollView, TouchableOpacity, Image} from 'react-native';
 import Util from './../utils/conf'
+
 
 class Settings extends Component {
 
@@ -10,6 +11,7 @@ class Settings extends Component {
     };
 
     render() {
+        const {navigate} = this.props.navigation;
         return (
             <ScrollView style={styles.container}>
                 <View style={styles.container}>
@@ -18,22 +20,28 @@ class Settings extends Component {
                                resizeMode="contain"/>
                         <Text style={[styles.text, {fontSize:13}]}>v1.0.0</Text>
                     </View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=>navigate('Details')}>
                         <View style={[styles.item, {borderTopWidth:Util.pixel}]}>
                             <Text style={styles.text}>功能介绍</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity >
+                    <TouchableOpacity onPress={()=>navigate('Help')}>
                         <View style={styles.item}>
                             <Text style={styles.text}>帮助中心</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity >
+                    <TouchableOpacity onPress={()=>navigate('Tips')}>
                         <View style={styles.item}>
                             <Text style={styles.text}>服务条款</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity >
+                    <TouchableOpacity onPress={()=>Alert.alert(
+            '关于',
+            "如果问题,请联系: yooz@live.cn",
+            [
+              {text: '我知道了', onPress: () => console.log('OK Pressed!')},
+            ]
+          )}>
                         <View style={styles.item}>
                             <Text style={styles.text}>关于</Text>
                         </View>
@@ -46,31 +54,31 @@ class Settings extends Component {
 }
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        marginTop:10
+    container: {
+        flex: 1,
+        marginTop: 10
     },
-    item:{
-        height:50,
-        backgroundColor:'#fff',
+    item: {
+        height: 50,
+        backgroundColor: '#fff',
         borderBottomWidth: Util.pixel,
-        borderColor:'#ccc',
+        borderColor: '#ccc',
         justifyContent: 'center'
     },
-    bg:{
+    bg: {
         backgroundColor: '#FFF',
-        height:40,
+        height: 40,
         justifyContent: 'center',
         alignItems: 'center'
     },
-    text:{
-        fontSize:15,
-        marginLeft:10,
+    text: {
+        fontSize: 15,
+        marginLeft: 10,
         color: '#7E7F7E'
     },
-    icon:{
-        width:88,
-        height:100
+    icon: {
+        width: 88,
+        height: 100
     }
 });
 
